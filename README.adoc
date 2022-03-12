@@ -154,7 +154,7 @@ AsciidocFX
 ( KaiGenGothic**XX** , KaiGenGothic**XX**-Bold , KaiGenGothic**XX**-BoldItalic , KaiGenGothic**XX**-Italic )
 
 .PDF ->屬性->字型
-image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/pdf-fonts.png
+image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/pdf-fonts.png[]
 
 == 還原原始設定檔
 
