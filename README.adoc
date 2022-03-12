@@ -47,8 +47,8 @@ image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screensho
 目錄結構如下: 請確認位置是否正確
 
 .複製後的目錄結構
-[tree,file="asciidocfX-tree.png"]
---
+[source,bash]
+----
 AsciidocFX
 |-- AsciidocFX
 |-- AsciidocFX.vmoptions
@@ -57,7 +57,7 @@ AsciidocFX
 |-- pdf-cjk-patch-JP.sh <-新增 
 |-- pdf-cjk-patch-KR.sh <-新增
 `-- pdf-cjk-patch (目錄) <-新增
---
+----
 
 以下請根據你的需要, 選擇其中一種執行
 
@@ -95,8 +95,8 @@ cd /yourPath/AsciidocFX
 === 執行完成後的成果
 
 .複製後的目錄結構
-[tree,file="asciidocfX-tree-after.png"]
---
+[source,bash]
+----
 AsciidocFX
 |-- conf
     |-- docbook-config
@@ -114,7 +114,7 @@ AsciidocFX
             |-- KaiGenGothicXX-Regular-Italic.xml (複製)
             |-- KaiGenGothicXX-Regular.ttf (下載)
             `-- KaiGenGothicXX-Regular.xml (複製)
---
+----
 
 其中 XX 應該是你自己對應的語文 例如 TW , CN , JP , KR
 
