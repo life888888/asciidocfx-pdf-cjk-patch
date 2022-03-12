@@ -1,0 +1,32 @@
+--- fop.xconf.xml	2021-05-01 15:40:34.000000000 +0800
++++ fop.xconf.xml	2022-03-11 00:23:36.365723851 +0800
+@@ -16,7 +16,7 @@
+ <fop version="1.0">
+ 
+   <!-- Base URL for resolving relative URLs -->
+-  <base>.</base>
++  <base>../fonts/KaiGenGothic</base>
+   
+   <!-- Source resolution in dpi (dots/pixels per inch) for determining the size of pixels in SVG and bitmap images, default: 72dpi -->
+   <source-resolution>200</source-resolution>
+@@ -87,6 +87,20 @@
+ 
+         <!-- automatically detect operating system installed fonts -->
+         <auto-detect/>
++<!-- 다음이 추가됩니다 -->
++<font metrics-url="KaiGenGothicKR-Bold.xml" kerning="yes" embed-url="KaiGenGothicKR-Bold.ttf">  
++      <font-triplet name="KaiGen Gothic KR" style="normal" weight="bold"/> 
++</font>
++<font metrics-url="KaiGenGothicKR-Bold-Italic.xml" kerning="yes" embed-url="KaiGenGothicKR-Bold-Italic.ttf"> 
++      <font-triplet name="KaiGen Gothic KR" style="italic" weight="bold"/> 
++</font>
++<font metrics-url="KaiGenGothicKR-Regular.xml" kerning="yes" embed-url="KaiGenGothicKR-Regular.ttf"> 
++      <font-triplet name="KaiGen Gothic KR" style="normal" weight="normal"/> 
++</font>
++<font metrics-url="KaiGenGothicKR-Regular-Italic.xml" kerning="yes" embed-url="KaiGenGothicKR-Regular-Italic.ttf"> 
++      <font-triplet name="KaiGen Gothic KR" style="italic" weight="normal"/> 
++</font>
++<!-- 위 내용은 추가된 내용입니다 -->        
+       </fonts>
+ 
+       <!-- This option lets you specify additional options on an XML handler -->

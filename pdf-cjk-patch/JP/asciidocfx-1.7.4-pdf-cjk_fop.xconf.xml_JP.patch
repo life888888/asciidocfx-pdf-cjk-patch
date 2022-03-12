@@ -1,0 +1,32 @@
+--- fop.xconf.xml	2021-05-01 15:40:34.000000000 +0800
++++ fop.xconf.xml	2022-03-11 00:21:02.873953253 +0800
+@@ -16,7 +16,7 @@
+ <fop version="1.0">
+ 
+   <!-- Base URL for resolving relative URLs -->
+-  <base>.</base>
++  <base>../fonts/KaiGenGothic</base>
+   
+   <!-- Source resolution in dpi (dots/pixels per inch) for determining the size of pixels in SVG and bitmap images, default: 72dpi -->
+   <source-resolution>200</source-resolution>
+@@ -87,6 +87,20 @@
+ 
+         <!-- automatically detect operating system installed fonts -->
+         <auto-detect/>
++<!-- 以下を追加   -->
++<font metrics-url="KaiGenGothicJP-Bold.xml" kerning="yes" embed-url="KaiGenGothicJP-Bold.ttf">  
++      <font-triplet name="KaiGen Gothic JP" style="normal" weight="bold"/> 
++</font>
++<font metrics-url="KaiGenGothicJP-Bold-Italic.xml" kerning="yes" embed-url="KaiGenGothicJP-Bold-Italic.ttf"> 
++      <font-triplet name="KaiGen Gothic JP" style="italic" weight="bold"/> 
++</font>
++<font metrics-url="KaiGenGothicJP-Regular.xml" kerning="yes" embed-url="KaiGenGothicJP-Regular.ttf"> 
++      <font-triplet name="KaiGen Gothic JP" style="normal" weight="normal"/> 
++</font>
++<font metrics-url="KaiGenGothicJP-Regular-Italic.xml" kerning="yes" embed-url="KaiGenGothicJP-Regular-Italic.ttf"> 
++      <font-triplet name="KaiGen Gothic JP" style="italic" weight="normal"/> 
++</font>
++<!-- 上記は追加コンテンツです -->
+       </fonts>
+ 
+       <!-- This option lets you specify additional options on an XML handler -->
