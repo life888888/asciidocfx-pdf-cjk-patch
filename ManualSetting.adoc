@@ -1,50 +1,51 @@
-= Asciidoc FX - PDF CJK Patch 人工(手動)設定指引
-
+= Asciidoc FX - PDF CJK Patch Manual Setting Guide 
 :encoding: utf-8
-:lang: zh
+:lang: en
 :toc: left
 :numbered:
 :experimental:
 
-本指引適用 AsciidocFX 1.7.4 / 1.6.0。(更早之前的版本 , 沒有測試)
+This guideline applies to AsciidocFX 1.7.4 / 1.6.0. (not tested in earlier versions) 
 
+The following is translated from Chinese to English using Google Translate.
 
-== 前言
+== Preface
 
-這個指引是針對 Windows 及 MacOS 或是其他無法套用 自動化 .sh 的使用者必須做人工修改設定的說明
+This guide is for Windows and MacOS or other users who cannot apply automation .sh and must manually modify the settings.
 
-詳細步驟其實是根據 pdf-cjk-patch-XX.sh 裡面的註解 , 改為 人工方式 的步驟進行說明
+The detailed steps are actually explained according to the notes in pdf-cjk-patch-XX.sh and changed to manual mode.
 
-* XX 可以換成是 TW 或是 CN 或是 JP 或是 KR
-* 以下看到 XX , 請自行替換成你自己要使用的 語文
+* XX can be replaced by TW or CN or JP or KR. 
+* See XX below, please replace it with the language you want to use.	
 
 
 [NOTE]
 ====
-以下把你的 AsciidocFX 的安裝目錄簡稱為 AsciidocFX。
-(如果你是 Windows 的使用者 請把路徑分隔符號由 `/` 換成 `\`)
+The installation directory of your AsciidocFX is referred to as AsciidocFX below.
+If you are a Windows user, please replace the path separator from `/` to `\`.
 ====
 
 
-== 建立字型目錄
+== Create a font directory
 
 `# create CJK_FONT_DIR`
 
-請建立以下路徑之目錄 AsciidocFX/conf/fonts/KaiGenGothic
-(Windows 應該會是 AsciidocFX\conf\fonts\KaiGenGothic)
+Please create a directory with the following path AsciidocFX/conf/fonts/KaiGenGothic
+(In Windows should be AsciidocFX\conf\fonts\KaiGenGothic) 
 
 
-== 下載字型
+== Download font 
 
 `# download CJK Fonts`
 
-請下載以下字型 
-下載方式, 看你願意用 瀏覽器 Firefox , Chrome 或是其他程式都可以
+Please download the following fonts:
+ 
+Download method, see if you are willing to use browser Firefox, Chrome or other programs.
 
-請找到你要下載的區塊 TW , CN , JP , KR
-下載後的字型請放到 AsciidocFX/conf/fonts/KaiGenGothic 目錄下。
+Please find the block you want to download TW , CN , JP , KR.
+Please put the downloaded fonts in the AsciidocFX/conf/fonts/KaiGenGothic directory. 
 
-下載字型 URL 整理如下:
+The download font URLs are organized as follows: 
 
 [source,bash]
 ----
@@ -88,69 +89,69 @@ https://github.com/chloerei/asciidoctor-pdf-cjk-kai_gen_gothic/releases/download
 
 
 
-=== 檢查字型正確性
+=== Check font correctness 
 
 `# md5 checksum`
 
-請複製 pdf-cjk-patch/TW/KaiGenGothicXX.fonts.md5 
-到 AsciidocFX/conf/fonts/KaiGenGothic 目錄下
-你可以到 AsciidocFX/conf/fonts/KaiGenGothic 目錄下
-使用命令 md5sum -c KaiGenGothicXX.fonts.md5
-或是其他工具去檢驗 , 下載的字型的一致性。
+Please copy pdf-cjk-patch/TW/KaiGenGothicXX.fonts.md5 to the AsciidocFX/conf/fonts/KaiGenGothic directory.
+You can go to the AsciidocFX/conf/fonts/KaiGenGothic directory and use the command `md5sum -c KaiGenGothicXX.fonts.md5`
+Or other tools to check the consistency of downloaded fonts.
 
-QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
+Q: What if the results of the md5sum test are inconsistent? 
 
-* 表示可能下載字型有錯, 可以嘗試再次下載字型
-* 表示可能字型有被異動過 , 不建議繼續下去
+* Indicates that there may be an error in downloading the font, you can try to download the font again.
+* Indicates that the font may have been changed, and it is not recommended to continue.
 
-.重要事項
+
 [IMPORTANT]
+.IMPORTANT
 ====
-因為 字型 fop 對應 xml 檔是針對 目前 https://github.com/chloerei/asciidoctor-pdf-cjk-kai_gen_gothic/releases/download/v0.1.0-fonts/KaiGenGothicXX-YYYYYYY.ttf 的檔案去對應產生以及修改的。
+Because the font xml file corresponding to the fop is generated for the current https://github.com/chloerei/asciidoctor-pdf-cjk-kai_gen_gothic/releases/download/v0.1.0-fonts/KaiGenGothicXX-YYYYYYY.ttf file and Modified.
 
-如果不是一樣內容的字型檔案，是不能套用以下字型 fop 對應 xml 檔，建議不要繼續下去。
+If it is not a font file with the same content, the fop corresponding xml file of the following fonts cannot be applied, and it is recommended not to continue. 
 
 ====
 
-== 複製 字型 fop 對應 xml 檔
+== Copy the fop corresponding to the font xml file 
 
 `# copy font xml`
 
-請複製以下 pdf-cjk-patch/XX 子目錄下
+Please copy these files in the pdf-cjk-patch/XX subdirectory below:
 
 * KaiGenGothicXX-Regular.xml
 * KaiGenGothicXX-Bold.xml
 * KaiGenGothicXX-Regular-Italic.xml
 * KaiGenGothicXX-Bold-Italic.xml
-到 AsciidocFX/conf/fonts/KaiGenGothic 這個字型目錄下
 
-== 備份 docbook-config 檔案
+into the font directory AsciidocFX/conf/fonts/KaiGenGothic 
+
+== Backup the docbook-config file 
 
 `# backup docbook-config`
 
-到　AsciidocFX/conf/docbook-config 目錄下
+Go to the AsciidocFX/conf/docbook-config directory 
 
-* 複製 `fop.xconf.xml` 檔案, 並且更名為 `fop.xconf.xml.org`
-* 複製 `fo-pdf.xsl` 檔案, 並且更名為 `fo-pdf.xsl.org`
+* Copy `fop.xconf.xml` , and rename to `fop.xconf.xml.org`
+* Copy `fo-pdf.xsl` , and rename to  `fo-pdf.xsl.org`
 
-== 修改 docbook-config 設定檔
+== Modify the docbook-config configuration file 
 
 `# patch docbook-config`
 
-複製 pdf-cjk-patch/XX/ 目錄下的
+Copy these files from the pdf-cjk-patch/XX/ directory
  
-* asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch (僅供參照)
-* asciidocfx-1.7.4-pdf-cjk_fo-pdf.xsl_XX.patch (僅供參照)
+* asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch (for reference only)
+* asciidocfx-1.7.4-pdf-cjk_fo-pdf.xsl_XX.patch (for reference only)
 
-到  AsciidocFX/conf/docbook-config 目錄下
+into the AsciidocFX/conf/docbook-config directory 
 
-=== 修改 fop.xconf.xml
+=== Modify fop.xconf.xml 
 
-執行文字編輯器，Windows的使用者建議使用 Notepad++
-請開啟 asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch 作為參考
-請開啟 AsciidocFX/conf/docbook-config 目錄下的 fop.xconf.xml 準備編輯
+Run a text editor, Windows users are recommended to use Notepad++ 
+Please enable asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch for reference 
+Please open fop.xconf.xml in the AsciidocFX/conf/docbook-config directory to prepare for editing 
 
-.找到以下段落 - fop.xconf.xml line 19
+.Find the following paragraph - fop.xconf.xml line 19 
 [source,xml]
 ----
   <!-- Base URL for resolving relative URLs --> //<1>
@@ -161,8 +162,7 @@ QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
 
 
 
-參考 asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch 的內容
-修改為以下內容:
+Refer to the content of asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch and modify it to the following: 
 
 [source,bash]
 ----
@@ -170,15 +170,16 @@ QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
   <base>../fonts/KaiGenGothic</base> //<2>
 ----
 <1> line 18
-<2> line 19 , 把以下設定的字型檔的目錄指向 我們新建的 fonts/KaiGenGothic 目錄
+<2> line 19 , Point the directory of the font file set below to our newly created fonts/KaiGenGothic directory
 
-.注意
+
 [IMPORTANT]
+.IMPORTANT
 ====
-注意不要把 // <1> // <2> 等內容複製。
+Be careful not to copy // <1> // <2> etc. 
 ====
 
-.找到以下段落 - fop.xconf.xml line 89
+.find the following paragraph - fop.xconf.xml line 89 
 [source,xml]
 ----
         <auto-detect/> // <1>
@@ -187,13 +188,12 @@ QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
 <1> line 89
 <2> line 90
 
-在 line 89 與 line 90 中間 請參照 asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch 的內容
-假設是使用 TW
+Between line 89 and line 90, please refer to asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch (assuming TW is used) 
 
 [source,xml]
 ----
          <auto-detect/> // <1>
-<!-- 以下為加入內容 --> // <2>
+<!-- The following are added content  --> // <2>
 <font metrics-url="KaiGenGothicTW-Bold.xml" kerning="yes" embed-url="KaiGenGothicTW-Bold.ttf">  
       <font-triplet name="KaiGen Gothic TW" style="normal" weight="bold"/> 
 </font>
@@ -206,25 +206,24 @@ QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
 <font metrics-url="KaiGenGothicTW-Regular-Italic.xml" kerning="yes" embed-url="KaiGenGothicTW-Regular-Italic.ttf"> 
       <font-triplet name="KaiGen Gothic TW" style="italic" weight="normal"/> 
 </font>
-<!-- 以上為加入內容 --> // <3>
+<!-- The above is added content  --> // <3>
        </fonts>
 ----
 <1> line 89
-<2> 開始的內容
-<3> 結束的內容
+<2> start content 
+<3> end content 
 
-其中 裡面的 TW 請自行換成 CN , JP , KR。
+Please replace the TW in it with CN, JP, KR by yourself.
 
-=== 修改 fo-pdf.xsl
+=== Modify fo-pdf.xsl 
 
-執行文字編輯器，Windows的使用者建議使用 Notepad++
+Run a text editor, Windows users are recommended to use Notepad++.
 
 
+Please enable asciidocfx-1.7.4-pdf-cjk_fo-pdf.xsl_XX.patch for reference.
+Please open fo-pdf.xsl in the AsciidocFX/conf/docbook-config directory to prepare for editing.
 
-請開啟 asciidocfx-1.7.4-pdf-cjk_fo-pdf.xsl_XX.patch 作為參考
-請開啟 AsciidocFX/conf/docbook-config 目錄下的 fo-pdf.xsl 準備編輯
-
-.找到以下段落 - fo-pdf.xsl line 30, 35, 62, 66, 70
+.find the following paragraphs - fo-pdf.xsl line 30, 35, 62, 66, 70.
 [source,xml]
 ----
 <xsl:attribute name="font-family">Sans-serif,Arial</xsl:attribute> // <1>
@@ -239,10 +238,10 @@ QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
 <4> line 66
 <5> line 70
 
-請參照 asciidocfx-1.7.4-pdf-cjk_fo-pdf.xsl_XX.patch 的內容, 加入對應的字型設定名稱 `KaiGen Gothic XX`
-例如: `KaiGen Gothic TW`
+Please refer to asciidocfx-1.7.4-pdf-cjk_fo-pdf.xsl_XX.patch and add the corresponding font name `KaiGen Gothic XX`
+For Example: `KaiGen Gothic TW` 
 
-修改後的內容如下: 假設是使用 TW
+The modified content is as follows: Assuming that TW is used 
 
 [source,bash]
 ----
@@ -259,58 +258,55 @@ QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
 <5> line 70
 
 
-.注意
+
 [IMPORTANT]
+.IMPORTANT
 ====
-不同版本間的 `<xsl:text>字型名稱,字型名稱, ...</xsl:text>` 可能有所不同。
+`<xsl:text>FontName,FontName, ...</xsl:text>` may vary between versions. 
 
-不要直接覆蓋原有的設定,請自己手動加入　`KaiGen Gothic TW`　記得加入逗號　‵,` 與其他字型名稱分隔 
+Do not directly overwrite the original settings, please add `KaiGen Gothic TW` manually. Remember to add commas ‵,` to separate from other font names.
 ====
 
 
-== 完成 AsciidoxFX PDF CJK Patch
+== Complete AsciidoxFX PDF CJK Patch
 
-=== 測試檔案 
+=== Testing 
 `# Open Example Asciidoc to test`
 
-pdf-cjk-patch/testdoc 目錄下, 提供了現成的測試檔案
+Under the pdf-cjk-patch/testdoc directory, ready-made test files are provided 
 
-執行 AsciidocFX 然後開啟 AsciidocFX/pdf-cjk-patch/testdoc 目錄
-開啟 PDF-CJK-TEST_XX.adoc
-然後 右上角 點選 PDF -> Save
-之後 就可以在 AsciidocFX/pdf-cjk-patch/testdoc 目錄
-看到剛才動作產出的 PDF (PDF-CJK-TEST_XX.pdf)
+* Execute AsciidocFX and open the AsciidocFX/pdf-cjk-patch/testdoc directory 
+* Open PDF-CJK-TEST_XX.adoc 
+* Then click PDF -> Save in the upper right corner 
+* After that, it can be found in the AsciidocFX/pdf-cjk-patch/testdoc directory 
+* See the PDF produced by the action just now (PDF-CJK-TEST_XX.pdf) 
 
-
-== 刪除 patch 檔
+== Delete patch file
 
 `# delete patch file`
 
-請到這個路徑下 AsciidocFX/conf/docbook-config/
-刪除 這兩個檔案
+Please go to this path AsciidocFX/conf/docbook-config/ and delete these two files:
 
 * asciidocfx-1.7.4-pdf-cjk_fop.xconf.xml_XX.patch
 * asciidocfx-1.7.4-pdf-cjk_fo-pdf.xsl_XX.patch
 
-== 刪除 md5
+== Delete md5
 
 `# delete md5`
 
-請自行刪除 AsciidocFX/conf/fonts/KaiGenGothic/KaiGenGothicXX.fonts.md5
+Please delete AsciidocFX/conf/fonts/KaiGen Gothic/KaiGenGothicXX.font.md5.
 
-== 後記
+== Summary
 
-至此完成人工修改設定的相關步驟 與 pdf-cjk-patch-XX.sh 內的步驟一致 ,
-只是透過 人工作業。
-
-
-=== Windows 使用者
-Windows 的使用者可以根據此步驟 , 自己對應出 windows 上的 bat 檔。來完成自動化執行。
-
-幾個重要的指令會是:
-
-* 下載檔案: Linux 上用 `wget` , Windows 要自己找
-* 檢查 md5 checksum : Linux 上用 `md5sum` , Windows 要自己找
-* patch 檔案: Linux 上用 `patch` , Windows 要自己找
+So far, the relevant steps to manually modify the settings are the same as the steps in pdf-cjk-patch-XX.sh, just through manual work. 
 
 
+=== Windows users
+
+Windows users can create the bat file on windows by themselves according to this step. to complete automation.
+
+A few important commands would be:
+
+* Download file command: `wget` on Linux, you need find another command on Windows.
+* Check md5 checksum command: use `md5sum` on Linux, find it yourself on Windows.
+* patch file command : use `patch` on Linux, find it yourself on Windows.

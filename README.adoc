@@ -1,90 +1,92 @@
 = asciidocfx-pdf-cjk-patch
 life888888
 :encoding: utf-8
-:lang: zh
+:lang: en
 :toc: left
 :numbered:
 :experimental: 
 
-AsciidocFX 匯出 PDF 的 中文 日文 韓文 字元 的顯示以及 粗體 斜體 斜粗體 粗斜體 的自動設定。
-Asciidoc FX PDF CJK Patch 是設定關於 Asciidoc FX 產出 PDF 時, 會發生 CJK 文字無法顯示 , 例如顯示成為 # 的CJK (中文 , 日文 , 韓文)的字型字體與樣式設定。避開 AsciidocFX 常見的產出 PDF 後, 中文字元沒有正常顯示的問題。如果執行完此 Asciidoc FX PDF CJK Patch，AsciidocFX 應該可以正常產生 有中文字元的 PDF。
+Display of Chinese, Japanese, and Korean characters in AsciidocFX exported PDF and automatic setting of Bold Italic Italic Bold Bold Italic.
+Asciidoc FX PDF CJK Patch is to set the font and style settings of CJK (Chinese, Japanese, Korean) that display as `#` when CJK text cannot be displayed when Asciidoc FX produces PDF. To avoid the common problem of AsciidocFX outputting PDF, Chinese characters are not displayed normally. After executing this Asciidoc FX PDF CJK Patch, AsciidocFX should be able to generate PDFs with Chinese characters normally. 
 
-.修改前 - 中文無法正常顯示 , 出現 `＃`
+.Before modification - Chinese cannot be displayed normally, `#` appears
 image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/BeforePatch.png[]
 
-.修改後 - 中文可以正常顯示 , 粗體 , 斜體 , 斜粗體 都有了
+.After modification - Chinese can be displayed normally, bold, italic, and italic bold are all available
 image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/AfterPatch.png[]
 
+The following is translated from Chinese to English using Google Translate.
 
 == Features
 
-* 自動化下載 字型
-* 自動化設定 字型及樣式設定
-* 支援 斜體
-* 支援 斜粗體
+* Automatically download fonts
+* Automatic settings font and style settings
+* supports italics
+* support italic bold
 
-== 如何安裝 PDF CJK Patch
+== How to install PDF CJK Patch 
 
-請到 Release 下載 
+Please go to Release to download
 
 * asciidocfx-pdf-cjk-patch-all.zip    (TW , CN , JP , KR all in one)
 
 
-.重要事項
+
 [IMPORTANT]
+.Important
 ====
-* 這個 Asciidoc FX PDF CJK Patch 目前只能在 **Linux** 上**自動**執行
-** 如果是 **Windows** 或是 **MacOS** 的使用者 , 請自行參照 ManualSetting.adoc[手動設定執行]。
-* 這個 Asciidoc FX PDF CJK Patch 目前只有針對 Asciidoc FX **1.7.4**/**1.6.0** 有測試過!
-** 不保證可以自動化套用在 Asciidoc FX 其他版本。
-** 但是你可以人工去修改設定。請自行參照 ManualSetting.adoc[手動設定執行]。
+* This Asciidoc FX PDF CJK Patch currently only works automatically on **Linux**
+** If you are a **Windows** or **MacOS** user, please refer to ManualSetting.adoc[Manual Setting and Execution].
+* This Asciidoc FX PDF CJK Patch is currently only tested for Asciidoc FX **1.7.4**/**1.6.0**!
+** Not guaranteed to automatically apply to other versions of Asciidoc FX.
+** But you can manually modify the settings. Please refer to ManualSetting.adoc [manual setting execution].
 ====
 
-=== 安裝與執行
+=== Install and execute
 
-解開後 asciidocfx-pdf-cjk-patch-all.zip , 複製其下內容到 你的 AsciidocFX 目錄下
+After unpacking asciidocfx-pdf-cjk-patch-all.zip , copy the  `src` directory contents to your AsciidocFX directory.
 
-目錄結構如下: 請確認位置是否正確
+The directory structure is as follows: Please make sure the location is correct 
 
-.複製後的目錄結構
+.The copied directory structure
 [source,bash]
 ----
 AsciidocFX
 |-- AsciidocFX
 |-- AsciidocFX.vmoptions
-|-- pdf-cjk-patch-TW.sh <-新增
-|-- pdf-cjk-patch-CN.sh <-新增
-|-- pdf-cjk-patch-JP.sh <-新增 
-|-- pdf-cjk-patch-KR.sh <-新增
-`-- pdf-cjk-patch (目錄) <-新增
+|-- pdf-cjk-patch-TW.sh <- Add
+|-- pdf-cjk-patch-CN.sh <- Add
+|-- pdf-cjk-patch-JP.sh <- Add
+|-- pdf-cjk-patch-KR.sh <- Add
+`-- pdf-cjk-patch (Directory) <- Add
 ----
 
-以下請根據你的需要, 選擇其中一種執行
+Please choose one of the following according to your needs:
 
-請把 `/yourPath/AsciidocFX` 換成你的 AsciidocFX 的實際安裝路徑
+Please replace `/yourPath/AscidocFX` with the actual installation path of your AsciidocFX 
 
-.設定 正體中文 字型及樣式,請執行以下指令
+.To set the font and style of Traditional Chinese, please execute the following commands 
 [source,bash]
 ----
 cd /yourPath/AsciidocFX
 ./pdf-cjk-patch-TW.sh
 ----
 
-.設定 簡體中文 字型及樣式,請執行以下指令
+.To set the Simplified Chinese font and style, please execute the following commands 
 [source,bash]
 ----
 cd /yourPath/AsciidocFX
 ./pdf-cjk-patch-CN.sh
 ----
 
-.設定 日文 字型及樣式,請執行以下指令
+.To set the Japanese font and style, please execute the following commands 
 [source,bash]
 ----
 cd /yourPath/AsciidocFX
 ./pdf-cjk-patch-JP.sh
 ----
 
-.設定 韓文 字型及樣式,請執行以下指令
+.To set the Korean font and style, please execute the following commands
 [source,bash]
 ----
 cd /yourPath/AsciidocFX
@@ -92,81 +94,83 @@ cd /yourPath/AsciidocFX
 ----
 
 
-=== 執行完成後的成果
+=== Results after execution 
 
-.複製後的目錄結構
+.The copied directory structure 
 [source,bash]
 ----
 AsciidocFX
 |-- conf
     |-- docbook-config
-    │   |-- fo-pdf.xsl (修改)
-    │   |-- fo-pdf.xsl.org (複製備份原始檔案 fo-pdf.xsl )    
-    │   |-- fop.xconf.xml (修改)
-    │   `-- fop.xconf.xml.org (複製備份原始檔案 fop.xconf.xml)    
+    │   |-- fo-pdf.xsl (modified)
+    │   |-- fo-pdf.xsl.org (Copy backup original file:  fo-pdf.xsl )    
+    │   |-- fop.xconf.xml (modified)
+    │   `-- fop.xconf.xml.org (Copy backup original file: fop.xconf.xml)    
     `-- fonts
-        `-- KaiGenGothic (新增建立)
-            |-- KaiGenGothicXX-Bold-Italic.ttf (下載)
-            |-- KaiGenGothicXX-Bold-Italic.xml (複製)
-            |-- KaiGenGothicXX-Bold.ttf (下載)
-            |-- KaiGenGothicXX-Bold.xml (複製)
-            |-- KaiGenGothicXX-Regular-Italic.ttf (下載)
-            |-- KaiGenGothicXX-Regular-Italic.xml (複製)
-            |-- KaiGenGothicXX-Regular.ttf (下載)
-            `-- KaiGenGothicXX-Regular.xml (複製)
+        `-- KaiGenGothic (create)
+            |-- KaiGenGothicXX-Bold-Italic.ttf (Download)
+            |-- KaiGenGothicXX-Bold-Italic.xml (Copy)
+            |-- KaiGenGothicXX-Bold.ttf (Download)
+            |-- KaiGenGothicXX-Bold.xml (Copy)
+            |-- KaiGenGothicXX-Regular-Italic.ttf (Download)
+            |-- KaiGenGothicXX-Regular-Italic.xml (Copy)
+            |-- KaiGenGothicXX-Regular.ttf (Download)
+            `-- KaiGenGothicXX-Regular.xml (Copy)
 ----
 
-其中 XX 應該是你自己對應的語文 例如 TW , CN , JP , KR
+Where XX should be your own language such as TW , CN , JP , KR 
 
-.注意
+
 [WARNING]
+.WARNING
 ====
-修改完成, 為了避免一些問題,請先把你的 home 目錄下的 AsciidocFX 設定目錄刪除
+The modification is completed, in order to avoid some problems, please delete the AsciidocFX setting directory in your home directory first.
 
 * .AsciidocFX-1.7.4
 * .com.kodedu.boot.AppStarter
 ====
 
-== 如何測試
+== how to test 
 
-專案提供了一些測試用的檔案 , 在你完成設定後 , 可以立即進行測試。
+The project provides some files for testing. After you complete the settings, you can test it immediately. 
 
-執行 AsciidocFX 。開啟 AsciidocFX/pdf-cjk-patch/testdoc 目錄
+Execute AsciidocFX. Open the AsciidocFX/pdf-cjk-patch/testdoc directory:
 
-選擇對應的測試檔案:
+Select the corresponding test file: 
 
-* PDF-CJK-TEST_TW.adoc - 用來測試 正體中文
-* PDF-CJK-TEST_CN.adoc - 用來測試 簡體中文
-* PDF-CJK-TEST_JP.adoc - 用來測試 日文 (這個是用 Google 翻譯 產出的)
-* [line-through]#PDF-CJK-TEST_KR.adoc# - 沒有 , 因為我沒有做。 
+* PDF-CJK-TEST_TW.adoc - Used to test Traditional Chinese 
+* PDF-CJK-TEST_CN.adoc - Used to test Simplified Chinese 
+* PDF-CJK-TEST_JP.adoc - Used to test Japanese (this is produced by Google Translate) 
+* [line-through]#PDF-CJK-TEST_KR.adoc# - No, because I didn't do it. 
 
-如果設定成功 , 你的 PDF 會看到 中文 , 並且有 粗體 , 斜體 , 斜粗體 的中文。
+If the setting is successful, your PDF will see Chinese(or your language), and there are bold, italic, italic bold Chinese. 
 
-=== PDF 檢查項目
+=== PDF check items
 .Checked list
-- [ ] 中文字體是否都顯示
-- [ ] 一般字體是否正常顯示
-- [ ] 粗體字體是否正常顯示
-- [ ] 斜體字體是否正常顯示
-- [ ] 斜粗體字體是否正常顯示
-- [ ] 二級標題 , 三級標題 , 四級標題 是否正式顯示
-- [ ] 開啟 PDF , 點開 屬性 , 檢查 字型 , 看看 內嵌的字型名稱是否有對應你設定的 CJK 字型
+- [ ] Whether all Chinese((or your language)) fonts are displayed.
+- [ ] Whether the general font is displayed normally?  
+- [ ] Whether the bold font is displayed normally? 
+- [ ] Whether italic fonts are displayed normally? 
+- [ ] Is italic bold font displayed normally? 
+- [ ] Whether the second-level title, the third-level title, and the fourth-level title are officially displayed?
+- [ ] Open the PDF, click Properties, check the font, and see if the embedded font name corresponds to the CJK font you set.
 ( KaiGenGothic**XX** , KaiGenGothic**XX**-Bold , KaiGenGothic**XX**-BoldItalic , KaiGenGothic**XX**-Italic )
 
-.PDF ->屬性->字型
+.PDF ->Properties->Fonts
 image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/pdf-fonts.png[]
 
-== 還原原始設定檔
+== Restore original file
 
-AsciidocFX/conf/docbook-config 有原始設定檔的備份 ( fo-pdf.xsl.org 及 fop.xconf.xml.org )
+AsciidocFX/conf/docbook-config has backups of original configuration files ( fo-pdf.xsl.org and fop.xconf.xml.org)
 
-* 請把 fo-pdf.xsl 使用 fo-pdf.xsl.org 覆蓋就可以
-* 請把 fop.xconf.xml 使用 fop.xconf.xml.org 覆蓋就可以
+* Please overwrite fo-pdf.xsl with fo-pdf.xsl.org 
+* Please overwrite fop.xconf.xml with fop.xconf.xml.org 
 
-.注意
+
 [WARNING]
+.WARNING
 ====
-修改完成後,為了避免一些問題,請先把你的 home 目錄下的 AsciidocFX 設定目錄刪除
+After the modification is completed, in order to avoid some problems, please delete the AsciidocFX setting directory in your home directory first.
 
 * .AsciidocFX-1.7.4
 * .com.kodedu.boot.AppStarter
@@ -175,15 +179,16 @@ AsciidocFX/conf/docbook-config 有原始設定檔的備份 ( fo-pdf.xsl.org 及 
 
 == Used Technologies
 
-AsciidocFX - PDF CJK Patch 使用 Linux 的 shell script
+AsciidocFX - PDF CJK Patch using Linux shell script 
 
-相關 Linux 程式:
+Related Linux programs:
 
 * wget
 * md5sum
 * patch
 
-字型:
+Fonts:
+
 * KaiGen Gothic 懷源黑體 https://github.com/chloerei/asciidoctor-pdf-cjk-kai_gen_gothic
 
 == Known Issues
@@ -196,30 +201,31 @@ None
 
 == Q & A
 
-Q: 如果**不是** Asciidoc FX **1.7.4** 是否也可以使用?
+Q: If **not** Asciidoc FX **1.7.4** will it also work?
 
-* 我只有在 Asciidoc FX 1.7.4 / 1.6.0 測試過 .sh 自動化
-* 其他版本可能也可以套用執行 .sh 自動化
-** 取決於 `AsciidocFX/conf/docbook-config/` 的 `fop.xconf.xml` 與 `fo-pdf.xsl` 的內容是否與 1.7.4 的內容一致。
-* 如果其他版本不能**自動化**套用 , 但是你仍然可以手動修改設定檔案。
+* I have only tested .sh automation on Asciidoc FX 1.7.4 / 1.6.0
+* Other versions may also be able to apply .sh automation 
+** Depends on whether the content of `fop.xconf.xml` and `fo-pdf.xsl` in `AscidocFX/conf/docbook-config/` is consistent with the content of 1.7.4. 
+* If other versions can't **automate** apply, but you can still manually modify the settings file. 
 
-Q: 為何用這個 **KaiGen Gothic 字型**?
+Q: Why use this **KaiGen Gothic font**? 
 
-* 因為 Asciidoctor PDF - CJK 也採用 , 應該不會有授權方面的問題。
-* 此外 它是目前 Open Source 有提供 斜體 , 斜粗體 的 CJK 字型。
+* Since Asciidoctor PDF - CJK also uses , there should be no licensing issues. 
+* In addition, it is currently Open Source that provides italic, italic bold CJK fonts.
 
 
-Q: 可不可以使用其他字型
+Q: Can I use another font? 
 
-* 可以使用其他 ttf 及 ttc 字型 , 但是不在這個專案中提供。
-* 但是如果沒有 斜體 , 斜粗體的對應字型 , 會導致 產生 PDF 時原本應該要顯示 斜體 , 斜粗體的文字, 會變成使用一般樣式顯示。
+* Other ttf and ttc fonts can be used, but are not provided in this project.
+* However, if there is no italic, the corresponding font of italic bold will cause the text that should be displayed in italic and italic bold when generating PDF, and will be displayed in the normal style.
 
 == FAQ
-AsciidocFX 上關於 PDF 中文字元無法顯示的問題：
 
-* 中文字元無法顯示, 變成 `#`。
+On AsciidocFX, the problem that Chinese characters in PDF cannot be displayed: 
 
-最簡單的設定是把字型加入。
+* Chinese characters cannot be displayed and become `#`. 
+
+The easiest setting is to add fonts. 
 
 AsciidocFX/conf/docbook-config/fop-config.xml
 
@@ -231,30 +237,31 @@ AsciidocFX/conf/docbook-config/fop-config.xml
             </fonts>
 ----
 
-你會發現可能 AsciidocFX 可能可以產出 PDF 包含中文字元。
+You may find that AsciidocFX may be able to produce PDFs containing Chinese characters. 
 
-但是下一個問題又會發生：
+But the next problem occurs:
 
-* 碰到三級標題或是含有斜體字設定文字仍然無法正常顯示
+* It still cannot be displayed properly when encountering a third-level title or setting text with italics
 
-三級標題無法正常顯示中文與斜體字設定文字無法正常顯示中文是同樣問題。
+The third-level title cannot display Chinese normally and the italic font setting text cannot display Chinese normally. It is the same problem. 
 
-AsciidocFX 吃不到對應的斜體字型。所以碰到需要用到斜體字的部份（例如三級標題）就會無法正常顯示中文。
+AsciidocFX can't get the corresponding italic font. Therefore, the parts that need to use italics (such as third-level headings) will not be able to display Chinese properly. 
 
-因為一般的中文字型都沒有 斜體 或是 粗體斜體 的字型，
+Because general Chinese fonts do not have italic or bold italic fonts, 
 
-所以要解決這個問題：
+So to solve this problem:
 
-* 方法1: 安裝 中文字型, 包含四種樣式的字型(一般, 粗體, 斜體, 粗體斜體)
-* 方法2: 修改 AsciidocFX 的 AsciidocFX/conf/docbook-config/fop.xconf.xml 設定
-** 欺騙系統 , 告訴系統
-*** 斜體 也使用 一般樣式字型
-*** 粗體斜體 也使用 粗體字型
+* Method 1: Install Chinese fonts, including four styles of fonts (normal, bold, italic, bold italic) 
+* Method 2: Modify the settings of AsciidocFX/conf/docbook-config/fop.xconf.xml of AsciidocFX 
+** deceive the system, tell the system 
+*** Italic also uses normal style fonts 
+*** Bold italic also uses bold font 
 
-方法2 
-優點：是 可以正常顯示相關中文。
-缺點：斜體 只會 顯示為 一般樣式 , 粗體斜體 只會顯示為 粗體。
-　　　如果你的文件對於　斜體　有特殊定義化，透過方法2轉為 PDF 後，通通沒有斜體了。
+Method 2  
+Advantages: Chinese can be displayed normally. 
+Disadvantage: Italics will only be displayed in normal style, bold italics will only be displayed in bold.
+
+If your file has a special definition for italics, after converting it to PDF through method 2, there will be no italics. 
 
 
 == Support
