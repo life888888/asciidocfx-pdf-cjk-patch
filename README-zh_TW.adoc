@@ -1,20 +1,23 @@
 = asciidocfx-pdf-cjk-patch
 life888888
 :encoding: utf-8
-:lang: zh
+:lang: zh_tw
 :toc: left
 :numbered:
 :experimental: 
-
+:imagedirs: screenshot
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
 AsciidocFX 匯出 PDF 的 中文 日文 韓文 字元 的顯示以及 粗體 斜體 斜粗體 粗斜體 的自動設定。
 Asciidoc FX PDF CJK Patch 是設定關於 Asciidoc FX 產出 PDF 時, 會發生 CJK 文字無法顯示 , 例如顯示成為 # 的CJK (中文 , 日文 , 韓文)的字型字體與樣式設定。避開 AsciidocFX 常見的產出 PDF 後, 中文字元沒有正常顯示的問題。如果執行完此 Asciidoc FX PDF CJK Patch，AsciidocFX 應該可以正常產生 有中文字元的 PDF。
 
 .修改前 - 中文無法正常顯示 , 出現 `＃`
-image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/BeforePatch.png[]
+image:BeforePatch.png[]
 
 .修改後 - 中文可以正常顯示 , 粗體 , 斜體 , 斜粗體 都有了
-image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/AfterPatch.png[]
+image:AfterPatch.png[]
 
+
+如果你使用 AsciidocFX 1.7.6+ 想要改用 ASCIIDOCTOR 來產生 PDF，可以參考 https://github.com/life888888/asciidoctor-pdf-cjk-ext#asciidocfx
 
 == Features
 
@@ -154,7 +157,7 @@ AsciidocFX
 ( KaiGenGothic**XX** , KaiGenGothic**XX**-Bold , KaiGenGothic**XX**-BoldItalic , KaiGenGothic**XX**-Italic )
 
 .PDF ->屬性->字型
-image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/pdf-fonts.png[]
+image:pdf-fonts.png[]
 
 == 還原原始設定檔
 
@@ -166,7 +169,7 @@ AsciidocFX/conf/docbook-config 有原始設定檔的備份 ( fo-pdf.xsl.org 及 
 .注意
 [WARNING]
 ====
-修改完成後,為了避免一些問題,請先把你的 home 目錄下的 AsciidocFX 設定目錄刪除
+修改完成後,為了避免一些問題,請先把你的 home 目錄下的 AsciidocFX 設定目錄刪除或是進行更改名稱。
 
 * .AsciidocFX-1.7.4
 * .com.kodedu.boot.AppStarter
@@ -213,6 +216,38 @@ Q: 可不可以使用其他字型
 
 * 可以使用其他 ttf 及 ttc 字型 , 但是不在這個專案中提供。
 * 但是如果沒有 斜體 , 斜粗體的對應字型 , 會導致 產生 PDF 時原本應該要顯示 斜體 , 斜粗體的文字, 會變成使用一般樣式顯示。
+
+
+Q: 從 AsciidocFX 1.7.6 開始，使用這個修改, 輸出中文PDF 又失敗了？
+
+因為從 AsciidocFX 1.7.6 開始，它預設的pdf 輸出是採用 asciidoctor-pdf 模組設定。
+
+所以我們要手動調製設定為原先舊版本的設定使用 fop 模組設定。
+
+如果你想要繼續使用 FOP 來產生PDF 的話。
+
+.AsciidocFX 1.7.6 開始，它預設的pdf 輸出是採用 asciidoctor-pdf
+image:PDFSetting-001.png[]
+
+① 請點選右側頁籤 `Settings`
+
+② 再點選上側頁籤 `PDF Settings`
+
+③ 在 `PDF Converter` / `PDF Engine` 點選 下拉選單
+
+
+下拉選單，點選 `FOP` 選項
+
+.下拉選單，點選 `FOP` 選項
+image:PDFSetting-002.png[]
+
+
+點選完成，點選 Save。再點選 Load。
+
+.點選完成，點選 Save。再點選 Load。
+image:PDFSetting-003.png[]
+
+
 
 == FAQ
 AsciidocFX 上關於 PDF 中文字元無法顯示的問題：

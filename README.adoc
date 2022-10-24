@@ -5,15 +5,20 @@ life888888
 :toc: left
 :numbered:
 :experimental: 
+:imagedirs: screenshot
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
 
 Display of Chinese, Japanese, and Korean characters in AsciidocFX exported PDF and automatic setting of Bold Italic Italic Bold Bold Italic.
 Asciidoc FX PDF CJK Patch is to set the font and style settings of CJK (Chinese, Japanese, Korean) that display as `#` when CJK text cannot be displayed when Asciidoc FX produces PDF. To avoid the common problem of AsciidocFX outputting PDF, Chinese characters are not displayed normally. After executing this Asciidoc FX PDF CJK Patch, AsciidocFX should be able to generate PDFs with Chinese characters normally. 
 
 .Before modification - Chinese cannot be displayed normally, `#` appears
-image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/BeforePatch.png[]
+image:BeforePatch.png[]
 
 .After modification - Chinese can be displayed normally, bold, italic, and italic bold are all available
-image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/AfterPatch.png[]
+image:AfterPatch.png[]
+
+
+If you use AsciidocFX 1.7.6+ and want to use ASCIIDOCTOR instead to generate PDF, you can refer to https://github.com/life888888/asciidoctor-pdf-cjk-ext#asciidocfx
 
 The following is translated from Chinese to English using Google Translate.
 
@@ -157,7 +162,7 @@ If the setting is successful, your PDF will see Chinese(or your language), and t
 ( KaiGenGothic**XX** , KaiGenGothic**XX**-Bold , KaiGenGothic**XX**-BoldItalic , KaiGenGothic**XX**-Italic )
 
 .PDF ->Properties->Fonts
-image:https://github.com/life888888/asciidocfx-pdf-cjk-patch/blob/main/screenshot/pdf-fonts.png[]
+image:pdf-fonts.png[]
 
 == Restore original file
 
@@ -218,6 +223,37 @@ Q: Can I use another font?
 
 * Other ttf and ttc fonts can be used, but are not provided in this project.
 * However, if there is no italic, the corresponding font of italic bold will cause the text that should be displayed in italic and italic bold when generating PDF, and will be displayed in the normal style.
+
+
+Q: Starting from AsciidocFX 1.7.6, with this modification, the output of Chinese PDF fails again?
+
+Because starting from AsciidocFX 1.7.6, its default pdf output is set using the asciidoctor-pdf module.
+
+So we have to manually modulate the settings to use the fop module settings for the original old version.
+
+If you want to continue using FOP to generate PDF.
+
+.AsciidocFX 1.7.6, its default pdf output is asciidoctor-pdf
+image:PDFSetting-001.png[]
+
+① Please click on the right tab `Settings`
+
+② Then click on the upper tab `PDF Settings`
+
+③ Click the drop-down menu in `PDF Converter` or `PDF Engine`
+
+
+Drop-down menu, click on the `FOP` option
+
+.Drop-down menu, click on the `FOP` option
+image:PDFSetting-002.png[]
+
+
+Click Done and click `Save`. Then click `Load`.
+
+.Click Done and click `Save`. Then click `Load`.
+image:PDFSetting-003.png[]
+
 
 == FAQ
 

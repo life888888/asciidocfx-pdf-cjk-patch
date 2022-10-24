@@ -4,6 +4,8 @@
 :toc: left
 :numbered:
 :experimental:
+:imagedirs: screenshot
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
 
 This guideline applies to AsciidocFX 1.7.4 / 1.6.0. (not tested in earlier versions) 
 

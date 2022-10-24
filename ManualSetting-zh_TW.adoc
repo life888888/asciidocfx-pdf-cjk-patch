@@ -5,6 +5,8 @@
 :toc: left
 :numbered:
 :experimental:
+:imagedirs: screenshot
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
 
 本指引適用 AsciidocFX 1.7.4 / 1.6.0。(更早之前的版本 , 沒有測試)
 
@@ -266,6 +268,46 @@ QA 如果 md5sum 檢驗出來的結果不一致怎麼辦？
 
 不要直接覆蓋原有的設定,請自己手動加入　`KaiGen Gothic TW`　記得加入逗號　‵,` 與其他字型名稱分隔 
 ====
+
+
+== 重新啟動 AsciidocFX 
+
+=== 刪除之前的設定檔
+
+在使用者 home 目錄下會有 `.AsciidocFX-1.7.8` (或 `.AsciidocFX-1.7.x`) 的隱藏目錄，請記得先進行刪除。或更名備份。
+
+=== 啟動 AsciidocFX
+
+請按照你之前的方式啟動 AsciidocFX。
+
+=== 調整 PDF 設定
+
+從 AsciidocFX 1.7.6 需要進行此步驟。
+
+因為從 AsciidocFX 1.7.6 開始，它預設的pdf 輸出是採用 asciidoctor-pdf 模組設定。
+
+所以我們要手動調製設定為原先舊版本的設定使用 fop 模組設定。
+
+.AsciidocFX 1.7.6 開始，它預設的pdf 輸出是採用 asciidoctor-pdf
+image:PDFSetting-001.png[]
+
+① 請點選右側頁籤 Settings
+
+② 再點選上側頁籤 PDF Settings
+
+③ 在 PDF Converter 點選 下拉選單
+
+
+下拉選單，點選 FOP 選項
+
+.下拉選單，點選 FOP 選項
+image:PDFSetting-002.png[]
+
+
+點選完成，點選 Save。再點選 Load。
+
+.點選完成，點選 Save。再點選 Load。
+image:PDFSetting-003.png[]
 
 
 == 完成 AsciidoxFX PDF CJK Patch
