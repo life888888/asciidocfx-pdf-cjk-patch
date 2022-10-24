@@ -1,12 +1,20 @@
 = asciidocfx-pdf-cjk-patch
 life888888
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+ifdef::env-github[]
+:toc:
+:toc-placement: preamble
+endif::[]
+ifndef::env-github[]
+:toc:
+:toc-placement: left
+endif::[]
+:imagesdir: images
 :encoding: utf-8
-:lang: en
+:lang: zh
 :toc: left
 :numbered:
-:experimental: 
-:imagedirs: screenshot
-:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+:experimental:
 
 Display of Chinese, Japanese, and Korean characters in AsciidocFX exported PDF and automatic setting of Bold Italic Italic Bold Bold Italic.
 Asciidoc FX PDF CJK Patch is to set the font and style settings of CJK (Chinese, Japanese, Korean) that display as `#` when CJK text cannot be displayed when Asciidoc FX produces PDF. To avoid the common problem of AsciidocFX outputting PDF, Chinese characters are not displayed normally. After executing this Asciidoc FX PDF CJK Patch, AsciidocFX should be able to generate PDFs with Chinese characters normally. 

@@ -1,12 +1,21 @@
 = asciidocfx-pdf-cjk-patch
 life888888
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+ifdef::env-github[]
+:toc:
+:toc-placement: preamble
+endif::[]
+ifndef::env-github[]
+:toc:
+:toc-placement: left
+endif::[]
+:imagesdir: images
 :encoding: utf-8
-:lang: zh_tw
+:lang: zh
 :toc: left
 :numbered:
-:experimental: 
-:imagedirs: screenshot
-:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+:experimental:
+
 AsciidocFX 匯出 PDF 的 中文 日文 韓文 字元 的顯示以及 粗體 斜體 斜粗體 粗斜體 的自動設定。
 Asciidoc FX PDF CJK Patch 是設定關於 Asciidoc FX 產出 PDF 時, 會發生 CJK 文字無法顯示 , 例如顯示成為 # 的CJK (中文 , 日文 , 韓文)的字型字體與樣式設定。避開 AsciidocFX 常見的產出 PDF 後, 中文字元沒有正常顯示的問題。如果執行完此 Asciidoc FX PDF CJK Patch，AsciidocFX 應該可以正常產生 有中文字元的 PDF。
 

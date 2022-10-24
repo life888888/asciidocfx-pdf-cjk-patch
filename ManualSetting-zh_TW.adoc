@@ -1,12 +1,22 @@
 = Asciidoc FX - PDF CJK Patch 人工(手動)設定指引
-
+life888888
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+ifdef::env-github[]
+:toc:
+:toc-placement: preamble
+endif::[]
+ifndef::env-github[]
+:toc:
+:toc-placement: left
+endif::[]
+:imagesdir: images
 :encoding: utf-8
 :lang: zh
 :toc: left
 :numbered:
 :experimental:
-:imagedirs: screenshot
-:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+
+
 
 本指引適用 AsciidocFX 1.7.4 / 1.6.0。(更早之前的版本 , 沒有測試)
 

@@ -1,11 +1,21 @@
 = Asciidoc FX - PDF CJK Patch Manual Setting Guide 
+life888888
+:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+ifdef::env-github[]
+:toc:
+:toc-placement: preamble
+endif::[]
+ifndef::env-github[]
+:toc:
+:toc-placement: left
+endif::[]
+:imagesdir: images
 :encoding: utf-8
-:lang: en
+:lang: zh
 :toc: left
 :numbered:
 :experimental:
-:imagedirs: screenshot
-:projecturl: https://github.com/life888888/asciidocfx-pdf-cjk-patch
+
 
 This guideline applies to AsciidocFX 1.7.4 / 1.6.0. (not tested in earlier versions) 
 
